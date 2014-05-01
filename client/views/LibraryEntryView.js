@@ -14,8 +14,6 @@ var LibraryEntryView = Backbone.View.extend({
       if (window.sinon) {
         this.model.enqueue();
       }
-      //this.model.enqueue();
-      //this.model.play();
     }
   },
 

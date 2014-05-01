@@ -25,7 +25,7 @@ var SongQueue = Songs.extend({
 
 
     this.on('dequeue', function(event) {
-      this.remove(event.attributes);
+      this.remove(event);
     }, this);
   },
 
