@@ -12,16 +12,17 @@ var SongQueue = Songs.extend({
       if (this.length === 1) {
         this.playFirst();
       }
-      console.dir('all: ' + event);
 
     }, this);
 
     this.on('ended', function() {
       this.shift();
-      if (this.length === 1) {
+      if (this.length > 0) {
         this.playFirst();
       }
     }, this);
+
+
 
     this.on('dequeue', function(event) {
       this.remove(event.attributes);
@@ -29,13 +30,17 @@ var SongQueue = Songs.extend({
   },
 
   enqueue: function(songData){
+    this.add(songData);
     if (this.length === 1) {
       this.playFirst();
     }
   },
 
   playFirst: function() {
-    this.at(0).play();
+    if (this.length > 0) {
+      this.at(0).play();
+      console.log('playing from playFirst');
+    }
   }
 
 });

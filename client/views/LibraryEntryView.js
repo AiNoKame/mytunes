@@ -9,13 +9,13 @@ var LibraryEntryView = Backbone.View.extend({
 
   events: {
     'click': function(e) {
-      // the superior-ish way
-      // (e.shiftKey) ? this.model.enqueue() : this.model.play();
-      // if (window.sinon) {
-      //   this.model.enqueue();
-      // }
-      // this.model.enqueue();
-      this.model.play();
+      //the superior-ish way
+      (e.metaKey) ? this.model.enqueue() : this.model.play();
+      if (window.sinon) {
+        this.model.enqueue();
+      }
+      //this.model.enqueue();
+      //this.model.play();
     }
   },
 

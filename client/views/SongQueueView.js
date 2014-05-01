@@ -5,17 +5,17 @@ var SongQueueView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
+
     this.collection.on('all', function(e){
-      console.log('sogwiqiview');
-    });
+      this.render();
+    }, this);
   },
 
   render: function() {
     return this.$el.html('<th>Queued!</th>').append(
-      $('<div style="background-color: red"><marquee width=20>1995!</marquee></div>')
-      // this.collection.map(function(song) {
-      //   return SongQueueEntryView({model: song}).render();
-      // })
+      this.collection.map(function(song) {
+        return new SongQueueEntryView({model: song}).render();
+      })
     );
   }
 
